@@ -1,0 +1,26 @@
+$positive: #404286;
+
+// @import 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+
+.header{
+  width: 100%;
+
+  .logo-wrapper {
+    text-align: center;
+    margin: 0 auto;
+
+    img {
+      width: 38px;
+      margin-top: -2px;
+    }
+
+  }
+}
+
+.place-info {
+  .row:nth-child(even) {
+    background-color: #C4C6C8;
+  }
+}
