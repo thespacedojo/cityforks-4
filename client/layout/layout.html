@@ -1,0 +1,16 @@
+<template name="layout">
+  {{#ionBody}}
+    {{> header}}
+    {{> subheader}}
+
+    {{#ionNavView}}
+      {{> yield}}
+    {{/ionNavView}}
+
+    {{#ionTabs style="ios"}}
+      {{> ionTab title="Places" path="places" iconOff="ios-list-outline" iconOn="ios-list"}}
+      {{> ionTab title="Map" path="map" iconOff="ios-location-outline" iconOn="ios-location"}}
+    {{/ionTabs}}
+    
+  {{/ionBody}}
+</template>
