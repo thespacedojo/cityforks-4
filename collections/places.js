@@ -1,5 +1,11 @@
 Places = new Mongo.Collection('places');
 
+Places.helpers({
+  price: function() {
+    return Array(this.price_level + 1).join('$');
+  }
+});
+
 Meteor.methods({
   'fetchNearbyLocations': function(coords) {
     if(Meteor.isServer) {
