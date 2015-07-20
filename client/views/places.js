@@ -1,5 +1,5 @@
 Template.places.onCreated(function() {
-  this.subscribe('nearbyPlaces');
+  this.subscribe('places');
 });
 
 Template.places.helpers({

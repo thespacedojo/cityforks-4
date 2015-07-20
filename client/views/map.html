@@ -1,0 +1,18 @@
+<template name="map">
+  {{#contentFor "subheaderTitle"}}
+    <h1 class="title">Map</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div id="map" style="height: 100%"></div>
+    {{/ionContent}}
+  {{/ionView}}
+</template>
+
+<template name="marker">
+  <strong>{{name}}</strong>
+  <br />
+  {{ rating }}
+  {{ price }}
+</template>
