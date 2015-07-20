@@ -1,3 +1,20 @@
 <template name="places">
+  {{#contentFor "subheaderTitle"}}
+    <h1 class="title">Nearby Places</h1>
+  {{/contentFor}}
 
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+        {{#each places}}
+          {{#ionItem path="place"}}
+            <div class="row">
+              <div class="col col-75">{{name}}</div>
+              <div class="col col-25">{{price}}</div>
+            </div>
+          {{/ionItem}}
+        {{/each}}
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
 </template>

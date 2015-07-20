@@ -1,0 +1,36 @@
+<template name="place">
+{{#contentFor "subheaderButtonLeft"}}
+  {{> ionNavBackButton path="places"}}
+{{/contentFor}}
+{{#with place}}
+  {{#contentFor "subheaderTitle"}}
+    <h1 class="title">{{place.name}}</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="place-info">
+        <div class="row">
+          <div class="col col-40"><strong>Address</strong></div>
+          <div class="col col-60">{{vicinity}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col col-40"><strong>Rating</strong></div>
+          <div class="col col-60">{{rating}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col col-40"><strong>Price</strong></div>
+          <div class="col col-60">{{price}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col col-40"><strong>Type</strong></div>
+          <div class="col col-60">{{type}}</div>
+        </div>
+      </div>
+    {{/ionContent}}
+  {{/ionView}}
+{{/with}}
+</template>
