@@ -6,14 +6,33 @@
   {{#ionView}}
     {{#ionContent}}
       {{#ionList}}
+        <div id="places">
         {{#each places}}
           {{#ionItem path="place"}}
-            <div class="row">
-              <div class="col col-75">{{name}}</div>
-              <div class="col col-25">{{price}}</div>
+            <div class="row place">
+              <div class="col col-90">
+                <h2>{{name}}</h2>
+                <p>
+                {{#if price}}
+                  {{price}}
+                {{/if}}
+                {{#if rating}}
+                  <span class="meta divider">|</span>
+                  <span class="meta stars">{{{getStars rating}}}</span> <!--  {{rating}} stars -->
+                {{/if}}
+                </p>
+              </div>
+
+              <div class="col arrow">
+                <!-- {{#if opening_hours}}
+                  {{#if opening_hours.open_now}} <span class="item-note">Open</span>{{/if}}
+                {{/if}} -->
+                <i class="icon ion-ios-arrow-right"></i>
+              </div>
             </div>
           {{/ionItem}}
         {{/each}}
+        </div>
       {{/ionList}}
     {{/ionContent}}
   {{/ionView}}

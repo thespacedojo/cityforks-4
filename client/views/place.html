@@ -2,33 +2,68 @@
 {{#contentFor "subheaderButtonLeft"}}
   {{> ionNavBackButton path="places"}}
 {{/contentFor}}
-{{#with place}}
-  {{#contentFor "subheaderTitle"}}
-    <h1 class="title">{{place.name}}</h1>
-  {{/contentFor}}
+{{#contentFor "subheaderTitle"}}
+  <h1 class="title">Details</h1>
+{{/contentFor}}
 
+{{#with place}}
   {{#ionView}}
     {{#ionContent}}
       <div class="place-info">
+        {{#if photos}}
+          <div style="background-image: url(https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference={{photos.[0].photo_reference}}&key=AIzaSyCtfoCAldCEf8hXUlkVUd4UljqKR6W_aF4)" class="place-photo"></div>
+        {{/if}}
+
+        <!-- name / opening -->
         <div class="row">
-          <div class="col col-40"><strong>Address</strong></div>
-          <div class="col col-60">{{vicinity}}</div>
+          <div class="col">
+            <h3>{{name}}</h3>
+            {{#if opening_hours.open_now}}
+              <div class="open-circ"></div> <span class="open">Open</span> 
+            {{/if}}
+          </div>
+        </div>
+
+        <!-- price & rating-->
+        <div class="row meta-info">
+          <div class="col">
+            {{#if rating}}
+              <span class="meta stars">{{{getStars rating}}}</span>
+            {{else}}
+              <span class="meta">No Ratings</span>
+            {{/if}}
+          </div>
+          <div class="col">
+            <span class="meta price">{{price}}</span>
+          </div>
         </div>
 
         <div class="row">
-          <div class="col col-40"><strong>Rating</strong></div>
-          <div class="col col-60">{{rating}}</div>
-        </div>
+          <div class="col">
+            <div class="info-section">
+              <span class="meta">Address</span>
+              <p>{{vicinity}}</p>
+            </div>
 
-        <div class="row">
-          <div class="col col-40"><strong>Price</strong></div>
-          <div class="col col-60">{{price}}</div>
+            <div class="info-section">
+              <span class="meta">Tags</span>
+              <p class="tags">{{tags}}</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col col-40"><strong>Type</strong></div>
-          <div class="col col-60">{{type}}</div>
-        </div>
+      <div class="list">
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-ios-location-outline icon-left"></i>
+          Get Directions
+          <i class="icon ion-ios-arrow-right"></i>
+        </a>
+        <a class="item item-icon-left item-icon-right" href="#">
+          <i class="icon ion-ios-paper-outline icon-left"></i>
+          Read Reviews
+          <i class="icon ion-ios-arrow-right"></i>
+        </a>
       </div>
     {{/ionContent}}
   {{/ionView}}
