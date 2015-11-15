@@ -1,26 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
 $positive: #404286;
+$loading-font-size: 22px;
+$font-stack: 'Montserrat', sans-serif;
 
 // @import 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/ionic';
-@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/ionicons';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionic-sass/_ionic';
+@import '.meteor/local/build/programs/server/assets/packages/meteoric_ionicons-sass/_ionicons';
 
-.header{
-  width: 100%;
+// override ionic's default.
+// reference: https://github.com/meteoric/meteor-ionic/issues/264
+body .ionic-body {
+  .content.overflow-scroll { top: 99px; }
+  font-family: $font-stack;
+}
 
-  .logo-wrapper {
-    text-align: center;
-    margin: 0 auto;
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-stack;
+}
 
-    img {
-      width: 38px;
-      margin-top: -2px;
+.bar-header {
+  text-align: center;
+  background-size: 100% 0px;
+  height: 56px; //override ionic's default
+  a {
+    position: relative;
+    top: 10px;
+  }
+
+  .logo {
+    max-height: 36px;
+  }
+}
+
+.bar-subheader {
+  margin-top: 11px; //override ionic's default
+  background-size: 100% 0px;
+}
+
+.place {
+  h2 { 
+    font-size: 1.2rem;
+  }
+
+  .item-note {
+    margin-top: .8rem;
+  }
+
+  .arrow {
+    font-size: 2.2rem;
+    i {
+      float: right;
+      opacity: .15;
+      margin-top: 5px;
     }
+  }
+}
 
+span.meta {
+  &.divider {
+    opacity: .25;
+    margin: 0 .3rem 0;
+  }
+  &.stars {
+    color: #FF9A23;
   }
 }
 
 .place-info {
-  .row:nth-child(even) {
-    background-color: #C4C6C8;
+  .place-photo {
+    background-size: cover;
+    background-position: 50% 55%;
+    text-align: center;
+    letter-spacing: 1px;
+    height: 20vh;
+    margin-bottom: 3vh;
+  }
+
+  h3 {
+    display: inline;
+    margin: 0 3px 0 0;
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 5px;
+    .tags {
+      text-transform: capitalize !important;
+    }
+  }
+
+  .meta-info {
+    margin-bottom: 3vh;
+  }
+
+  span.meta {
+    font-size: 1rem;
+    color: #888;
+    display: inline;
+    
+    &.price, &.stars {
+      font-size: 1.45rem;
+    }
+    &.price {
+      float: right;
+    }
+    &.stars {
+      color: #FF9A23;
+    }
+  }
+
+  .open-circ {
+    height: 7px;
+    width: 7px;
+    background: #00AA5B;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    bottom: 6px;
+    margin: 0 2px 0 5px;
+  }
+  .open {
+    font-size: 1rem;
+    white-space: nowrap;
+    color: #00AA5B;
+    margin: 0;
+    position: relative;
+    bottom: 4px;
   }
 }
+
+.info-section {
+  margin-bottom: 4vh;
+}
+

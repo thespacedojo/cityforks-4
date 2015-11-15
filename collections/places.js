@@ -3,6 +3,11 @@ Places = new Mongo.Collection('places');
 Places.helpers({
   price: function() {
     return Array(this.price_level + 1).join('$');
+  },
+  tags: function() {
+    var array = this.types;
+    var str = array.join(', ');
+    return str.replace(new RegExp('_', 'g'), ' ');
   }
 });
 
